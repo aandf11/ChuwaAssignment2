@@ -25,6 +25,7 @@ doubleValue(itemsObject);
 quantity > 2 and price > 300 only.*/
 function selectedArray(arr) {
   newArray = [];
+  //inline callback function
   var result = arr.map(function (el) {
     if (el.price > 300 && el.quantity > 2) {
       newArray.push({ quantity: el.quantity, price: el.price });
@@ -39,20 +40,19 @@ selectedArray(itemsObject);
 
 function totalValue(arr) {
   var totalValue = 0;
-  var mutiple = 0;
+  var multiple = 0;
   var value = 0;
   arr.forEach(function (item) {
     Object.keys(item).forEach(function (key) {
-      // console.log("key:" + key + " value: " + item[key]);
       if (key == "price") {
-        mutiple = item[key];
+        multiple = item[key];
       }
       if (key == "quantity") {
         value = item[key];
       }
-      if (mutiple != 0 && value != 0) {
-        totalValue += mutiple * value;
-        mutiple = 0;
+      if (multiple != 0 && value != 0) {
+        totalValue += multiple * value;
+        multiple = 0;
         value = 0;
       }
     });
@@ -62,6 +62,17 @@ function totalValue(arr) {
 
 console.log("#3 Output: ");
 totalValue(itemsObject);
+
+function updatedTotalValueMethod(arr) {
+  let initValue = 0;
+  let sum = arr.reduce(
+    (prev, curr) => prev + curr.quantity * curr.price,
+    initValue
+  );
+  console.log("The total value of the items is : " + sum);
+}
+
+updatedTotalValueMethod(itemsObject);
 
 const string =
   " Perhaps The Easiest-to-understand Case For Reduce Is To Return The Sum Of All The Elements In An Array ";
