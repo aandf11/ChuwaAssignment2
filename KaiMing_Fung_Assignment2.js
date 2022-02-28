@@ -86,6 +86,8 @@ const string =
 /*#4: Given the string, implement a function to remove all the non-alphabet characters and
 extra space in the string and convert the string to all lowercase.*/
 
+//-------------------------------------Method#1----------------------------------------
+
 function removeSpecialCharacter(s) {
   for (let i = 0; i < s.length; i++) {
     if (s[i] < "A" || (s[i] > "Z" && s[i] < "a") || s[i] > "z") {
@@ -98,3 +100,17 @@ function removeSpecialCharacter(s) {
 
 console.log("#4 Output: ");
 removeSpecialCharacter(string);
+
+//-------------------------------------Method#2----------------------------------------
+
+function updatedRemoveCharacter(s) {
+  let updatedString = s
+    .replace(/[^a-zA-Z ]/g, "")
+    .split(" ")
+    .join("")
+    .toLowerCase();
+
+  console.log(updatedString);
+}
+
+updatedRemoveCharacter(string);
