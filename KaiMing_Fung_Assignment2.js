@@ -11,6 +11,7 @@ const itemsObject = [
 quantity and price in each object.*/
 
 function doubleValue(arr) {
+  //Arrow Function
   const newItems = arr.map((arr) => ({
     ...arr,
     quantity: arr.quantity * 2,
@@ -23,6 +24,7 @@ doubleValue(itemsObject);
 
 /*#2: Given the array, implement a function for generating a new array which contains item
 quantity > 2 and price > 300 only.*/
+
 function selectedArray(arr) {
   newArray = [];
   //inline callback function
@@ -38,6 +40,7 @@ selectedArray(itemsObject);
 
 //#3: Given the array, implement a function to calculate the total value of the items.
 
+//-------------------------------------Method#1----------------------------------------
 function totalValue(arr) {
   var totalValue = 0;
   var multiple = 0;
@@ -63,6 +66,7 @@ function totalValue(arr) {
 console.log("#3 Output: ");
 totalValue(itemsObject);
 
+//--------------------------------------Method#2----------------------------------------
 function updatedTotalValueMethod(arr) {
   let initValue = 0;
   let sum = arr.reduce(
@@ -74,6 +78,8 @@ function updatedTotalValueMethod(arr) {
 
 updatedTotalValueMethod(itemsObject);
 
+//------------------------------------------------------------------------------------------------------------------------
+
 const string =
   " Perhaps The Easiest-to-understand Case For Reduce Is To Return The Sum Of All The Elements In An Array ";
 
@@ -82,9 +88,7 @@ extra space in the string and convert the string to all lowercase.*/
 
 function removeSpecialCharacter(s) {
   for (let i = 0; i < s.length; i++) {
-    // Finding the character whose ASCII value fall under this range
     if (s[i] < "A" || (s[i] > "Z" && s[i] < "a") || s[i] > "z") {
-      // erase function to erase the character
       s = s.substring(0, i) + s.substring(i + 1);
       i--;
     }
